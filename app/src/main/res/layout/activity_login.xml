@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.justorder.justordermanagement.LoginActivity">
+
+
+    <EditText
+        android:id="@+id/edtUserEmailLogin"
+        android:ems="15"
+        android:hint="Email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="122dp" />
+
+    <EditText
+        android:id="@+id/edtUserPassLogin"
+        android:ems="15"
+        android:hint="Password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:inputType="textPassword"
+        android:layout_below="@+id/edtUserEmailLogin"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="33dp"
+        android:text="LOGIN"
+        android:layout_below="@+id/edtUserPassLogin"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/btnGoToRegisterAcc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SIGN UP"
+        android:layout_marginTop="76dp"
+        android:layout_below="@+id/btnLogin"
+        android:layout_alignLeft="@+id/btnLogin"
+        android:layout_alignStart="@+id/btnLogin" />
+
+</RelativeLayout>

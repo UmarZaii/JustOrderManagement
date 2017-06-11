@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:text="We have sent you activation code for your account to the email below:"
+        android:gravity="center"
+        android:layout_width="500px"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="105dp"
+        android:id="@+id/txtActivationContent1"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:hint="E-mail"
+        android:gravity="center"
+        android:layout_width="500px"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtUserEmail"
+        android:layout_marginTop="22dp"
+        android:layout_below="@+id/txtActivationContent1"
+        android:layout_alignLeft="@+id/txtActivationContent1"
+        android:layout_alignStart="@+id/txtActivationContent1" />
+
+    <TextView
+        android:text="Please enter the 4-digit activation code to complete verification progress"
+        android:gravity="center"
+        android:layout_width="500px"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtActivationContent2"
+        android:layout_marginTop="18dp"
+        android:layout_below="@+id/txtUserEmail"
+        android:layout_alignLeft="@+id/txtUserEmail"
+        android:layout_alignStart="@+id/txtUserEmail" />
+
+    <EditText
+        android:id="@+id/edtUserCode"
+        android:ems="3"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="29dp"
+        android:layout_below="@+id/txtActivationContent2"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/btnVerifyCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtUserCode"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="66dp"
+        android:text="VERIFY CODE" />
+
+</RelativeLayout>
