@@ -1,5 +1,6 @@
 package com.justorder.justordermanagement;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -25,6 +26,8 @@ public class UserMainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 firebaseAuth.signOut();
+                finish();
+                startActivity(new Intent(UserMainActivity.this, LoginActivity.class));
             }
         });
     }

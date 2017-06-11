@@ -31,6 +31,8 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin = (Button)findViewById(R.id.btnLogin);
         btnGoToRegisterAcc = (Button)findViewById(R.id.btnGoToRegisterAcc);
 
+        Log.d("test", "a");
+
         fAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -65,4 +67,9 @@ public class LoginActivity extends AppCompatActivity {
         fAuth.addAuthStateListener(fAuthListener);
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        fAuth.removeAuthStateListener(fAuthListener);
+    }
 }
