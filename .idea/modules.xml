@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/JustOrderManagement.iml" filepath="$PROJECT_DIR$/JustOrderManagement.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpinKit/SpinKit.iml" filepath="$PROJECT_DIR$/SpinKit/SpinKit.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

@@ -19,6 +19,7 @@
         <activity android:name=".SignUpActivity"></activity>
         <activity android:name=".ActivationActivity"></activity>
         <activity android:name=".UserMainActivity"></activity>
+        <activity android:name=".LaunchScreenActivity"></activity>
     </application>
 
 </manifest>
