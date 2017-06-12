@@ -1,8 +1,10 @@
 package com.justorder.justordermanagement;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,6 +26,7 @@ public class ActivationActivity extends AppCompatActivity {
     private TextView txtUserEmail;
     private EditText edtUserCode;
     private Button btnVerifyCode;
+    private ProgressDialog progressDialog;
 
     public static String strUserCode = "";
 
@@ -31,6 +34,9 @@ public class ActivationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activation);
+
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setCanceledOnTouchOutside(false);
 
         fAuth = FirebaseAuth.getInstance();
         fDatabase = FirebaseDatabase.getInstance().getReference().child("tblUser");
@@ -67,14 +73,26 @@ public class ActivationActivity extends AppCompatActivity {
         btnVerifyCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 final String strUserCodeVerify = edtUserCode.getText().toString().trim();
                 final String strUserID = fAuth.getCurrentUser().getUid();
+
+                if (TextUtils.isEmpty(strUserCodeVerify)) {
+                    Toast.makeText(ActivationActivity.this, "Please input the activation code", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                progressDialog.setMessage("Verifying, Please Wait...");
+                progressDialog.show();
+
                 if (strUserCode.equals(strUserCodeVerify)){
                     fDatabase.child(strUserID).child("userStatus").setValue("Active");
                     Intent intent = new Intent(getApplicationContext(), UserMainActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
+                    progressDialog.dismiss();
                 } else {
+                    progressDialog.dismiss();
                     Toast.makeText(ActivationActivity.this, "Activation failed, please try again", Toast.LENGTH_LONG).show();
                 }
             }

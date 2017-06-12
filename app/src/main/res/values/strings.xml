@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">JustOrder Management</string>
+    <string name="app_brand">JustOrder</string>
+    <string name="app_name">JustOrder Manager</string>
 </resources>
