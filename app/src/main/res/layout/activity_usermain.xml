@@ -4,6 +4,15 @@
     android:layout_height="match_parent">
 
     <Button
+        android:id="@+id/btnGoToRegBusiness"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="93dp"
+        android:text="REGISTER RESTAURANT"
+        android:layout_alignBottom="@+id/btnLogOut"
+        android:layout_centerHorizontal="true" />
+
+    <Button
         android:id="@+id/btnLogOut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -11,4 +20,5 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="314dp"
         android:text="LOG OUT" />
+
 </RelativeLayout>

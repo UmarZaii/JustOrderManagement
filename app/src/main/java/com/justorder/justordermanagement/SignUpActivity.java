@@ -82,7 +82,7 @@ public class SignUpActivity extends AppCompatActivity {
                 } else {
 
                     StringGenerator stringGenerator = new StringGenerator();
-                    final String strUserCode = stringGenerator.createStringID(4);
+                    final String strUserCode = stringGenerator.createStringID(10,4);
                     final String strUserIDReg = fAuth.getCurrentUser().getUid();
                     final String strUserMessage = "ActivationCode: " + strUserCode;
 
