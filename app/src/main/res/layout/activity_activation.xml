@@ -50,9 +50,19 @@
         android:id="@+id/btnVerifyCode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/edtUserCode"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="66dp"
-        android:text="VERIFY CODE" />
+        android:text="VERIFY CODE"
+        android:layout_alignBaseline="@+id/btnResendCode"
+        android:layout_alignBottom="@+id/btnResendCode"
+        android:layout_toRightOf="@+id/edtUserCode"
+        android:layout_toEndOf="@+id/edtUserCode" />
+
+    <Button
+        android:id="@+id/btnResendCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RESEND CODE"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/edtUserCode"
+        android:layout_toStartOf="@+id/edtUserCode" />
 
 </RelativeLayout>

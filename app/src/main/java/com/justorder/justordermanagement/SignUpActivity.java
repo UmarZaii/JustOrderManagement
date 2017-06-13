@@ -95,6 +95,7 @@ public class SignUpActivity extends AppCompatActivity {
                     StringGenerator stringGenerator = new StringGenerator();
                     final String strUserCode = stringGenerator.createStringID(10,4);
                     final String strUserIDReg = fAuth.getCurrentUser().getUid();
+                    final String strUserSubj = "Account Activation";
                     final String strUserMessage = "ActivationCode: " + strUserCode;
 
                     final HashMap<String, String> dataMap = new HashMap<String, String>();
@@ -106,7 +107,6 @@ public class SignUpActivity extends AppCompatActivity {
                     dataMap.put("userCode", strUserCode);
                     fDatabase.child(strUserIDReg).setValue(dataMap);
 
-                    final String strUserSubj = "Account Activation";
                     new AccountActivation(strUserEmailReg,strUserSubj,strUserMessage).execute();
 
                     startActivity(new Intent(SignUpActivity.this, ActivationActivity.class));

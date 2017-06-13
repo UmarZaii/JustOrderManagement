@@ -25,10 +25,11 @@ public class ActivationActivity extends AppCompatActivity {
 
     private TextView txtUserEmail;
     private EditText edtUserCode;
-    private Button btnVerifyCode;
+    private Button btnVerifyCode, btnResendCode;
     private ProgressDialog progressDialog;
 
-    public static String strUserCode = "";
+    private String strUserCode = "";
+    private String strUserEmail = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,12 +45,13 @@ public class ActivationActivity extends AppCompatActivity {
         txtUserEmail = (TextView)findViewById(R.id.txtUserEmail);
         edtUserCode = (EditText)findViewById(R.id.edtUserCode);
         btnVerifyCode = (Button)findViewById(R.id.btnVerifyCode);
+        btnResendCode = (Button)findViewById(R.id.btnResendCode);
 
         final String strUserID= fAuth.getCurrentUser().getUid();
         fDatabase.child(strUserID).child("userEmail").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                final String strUserEmail = dataSnapshot.getValue().toString();
+                strUserEmail = dataSnapshot.getValue().toString();
                 txtUserEmail.setText(strUserEmail);
             }
 
@@ -70,6 +72,21 @@ public class ActivationActivity extends AppCompatActivity {
             }
         });
 
+        btnResendCode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String strUserSubj = "Account Activation";
+                final String strUserMessage = "ActivationCode: " + strUserCode;
+
+                progressDialog.setMessage("Sending Activation Code...");
+                progressDialog.show();
+
+                new AccountActivation(strUserEmail,strUserSubj,strUserMessage).execute();
+
+                progressDialog.dismiss();
+            }
+        });
+
         btnVerifyCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,6 +104,7 @@ public class ActivationActivity extends AppCompatActivity {
 
                 if (strUserCode.equals(strUserCodeVerify)){
                     fDatabase.child(strUserID).child("userStatus").setValue("Active");
+                    fDatabase.child(strUserID).child("userCode").removeValue();
                     Intent intent = new Intent(getApplicationContext(), UserMainActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
