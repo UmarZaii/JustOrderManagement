@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -48,6 +49,7 @@ public class ActivationActivity extends AppCompatActivity {
         btnResendCode = (Button)findViewById(R.id.btnResendCode);
 
         final String strUserID= fAuth.getCurrentUser().getUid();
+
         fDatabase.child(strUserID).child("userEmail").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -60,10 +62,13 @@ public class ActivationActivity extends AppCompatActivity {
 
             }
         });
+
         fDatabase.child(strUserID).child("userCode").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                strUserCode = dataSnapshot.getValue().toString();
+                if (dataSnapshot.getValue() != null) {
+                    strUserCode = dataSnapshot.getValue().toString();
+                }
             }
 
             @Override
