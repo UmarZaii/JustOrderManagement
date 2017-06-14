@@ -17,6 +17,7 @@
         <activity android:name=".ActivationActivity"></activity>
         <activity android:name=".UserMainActivity"></activity>
         <activity android:name=".UserRegBusinessActivity"></activity>
+        <activity android:name=".BusinessListActivity"></activity>
         <activity android:name=".LaunchScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

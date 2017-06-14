@@ -4,6 +4,15 @@
     android:layout_height="match_parent">
 
     <Button
+        android:id="@+id/btnViewRestaurantList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:text="RESTAURANT LIST"
+        android:layout_above="@+id/btnGoToRegBusiness"
+        android:layout_centerHorizontal="true" />
+
+    <Button
         android:id="@+id/btnGoToRegBusiness"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
