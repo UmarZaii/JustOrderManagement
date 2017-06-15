@@ -4,26 +4,15 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/edtUserFirstNameReg"
+        android:id="@+id/edtUserNameReg"
         android:ems="15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="First Name"
-        android:layout_marginBottom="108dp"
+        android:hint="User Name"
+        android:layout_marginBottom="23dp"
         android:layout_above="@+id/edtUserEmailReg"
         android:layout_alignLeft="@+id/edtUserEmailReg"
         android:layout_alignStart="@+id/edtUserEmailReg" />
-
-    <EditText
-        android:id="@+id/edtUserLastNameReg"
-        android:ems="15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Last Name"
-        android:layout_marginBottom="36dp"
-        android:layout_above="@+id/edtUserEmailReg"
-        android:layout_alignLeft="@+id/edtUserFirstNameReg"
-        android:layout_alignStart="@+id/edtUserFirstNameReg" />
 
     <EditText
         android:id="@+id/edtUserEmailReg"

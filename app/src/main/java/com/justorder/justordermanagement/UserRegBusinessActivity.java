@@ -38,8 +38,7 @@ public class UserRegBusinessActivity extends AppCompatActivity {
     private ProgressDialog progressDialog;
 
     private String strUserID = "";
-    private String strUserFirstName = "";
-    private String strUserLastName = "";
+//    private String strUserName = "";
 
     private static final int GALLERY_REQUEST = 1;
 
@@ -61,29 +60,17 @@ public class UserRegBusinessActivity extends AppCompatActivity {
 
         strUserID= fAuth.getCurrentUser().getUid();
 
-        fDatabaseUser.child(strUserID).child("userFirstName").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                strUserFirstName = dataSnapshot.getValue().toString();
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-        fDatabaseUser.child(strUserID).child("userLastName").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                strUserLastName = dataSnapshot.getValue().toString();
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
+//        fDatabaseUser.child(strUserID).child("userName").addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                strUserName = dataSnapshot.getValue().toString();
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//
+//            }
+//        });
 
         imgBusinessReg = (ImageButton)findViewById(R.id.imgBusinessReg);
         imgBusinessReg.setOnClickListener(new View.OnClickListener() {
@@ -121,7 +108,6 @@ public class UserRegBusinessActivity extends AppCompatActivity {
         final String strBusinessNameReg = edtBusinessNameReg.getText().toString().trim();
         final String strBusinessPhoneNoReg = edtBusinessPhoneNoReg.getText().toString().trim();
         final String strBusinessIDReg = stringGenerator.createPassayRNG(28);
-        final String strUserFullName = strUserFirstName + " " + strUserLastName;
 
         if (fStorage == null) {
             Toast.makeText(this, "Please insert profile picture..", Toast.LENGTH_SHORT).show();
@@ -150,7 +136,7 @@ public class UserRegBusinessActivity extends AppCompatActivity {
                 tblBusiness.put("businessPic", downloadUrl.toString());
                 final HashMap<String, String> tblBusinessManager = new HashMap<String, String>();
                 tblBusinessManager.put("managerID", strUserID);
-                tblBusinessManager.put("managerName", strUserFullName);
+//                tblBusinessManager.put("managerName", strUserName);
 
                 fDatabaseBusiness.child(strBusinessIDReg).setValue(tblBusiness);
                 fDatabaseBusiness.child(strBusinessIDReg).child("businessManager").child("Manager").child(strUserID).setValue(tblBusinessManager);

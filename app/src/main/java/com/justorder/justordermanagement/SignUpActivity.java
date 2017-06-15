@@ -26,7 +26,7 @@ public class SignUpActivity extends AppCompatActivity {
     private FirebaseAuth fAuth;
     private DatabaseReference fDatabase;
 
-    private EditText edtUserEmailReg, edtUserPassReg, edtUserFirstNameReg, edtUserLastNameReg;
+    private EditText edtUserNameReg, edtUserEmailReg, edtUserPassReg;
     private Button btnRegisterAcc;
     private ProgressDialog progressDialog;
 
@@ -41,8 +41,7 @@ public class SignUpActivity extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         fDatabase = FirebaseDatabase.getInstance().getReference().child("tblUser");
 
-        edtUserFirstNameReg = (EditText)findViewById(R.id.edtUserFirstNameReg);
-        edtUserLastNameReg = (EditText)findViewById(R.id.edtUserLastNameReg);
+        edtUserNameReg = (EditText)findViewById(R.id.edtUserNameReg);
         edtUserEmailReg = (EditText)findViewById(R.id.edtUserEmailReg);
         edtUserPassReg = (EditText)findViewById(R.id.edtUserPassReg);
         btnRegisterAcc = (Button)findViewById(R.id.btnRegisterAcc);
@@ -58,16 +57,12 @@ public class SignUpActivity extends AppCompatActivity {
 
     private void signUp() {
 
-        final String strUserFirstNameReg = edtUserFirstNameReg.getText().toString().trim();
-        final String strUserLastNameReg = edtUserLastNameReg.getText().toString().trim();
+        final String strUserNameReg = edtUserNameReg.getText().toString().trim();
         final String strUserEmailReg = edtUserEmailReg.getText().toString().trim();
         final String strUserPassReg = edtUserPassReg.getText().toString().trim();
 
-        if(TextUtils.isEmpty(strUserFirstNameReg)) {
-            Toast.makeText(SignUpActivity.this, "Please input your first name", Toast.LENGTH_LONG).show();
-            return;
-        } else if(TextUtils.isEmpty(strUserLastNameReg)) {
-            Toast.makeText(SignUpActivity.this, "Please input your last name", Toast.LENGTH_LONG).show();
+        if(TextUtils.isEmpty(strUserNameReg)) {
+            Toast.makeText(SignUpActivity.this, "Please input your user name", Toast.LENGTH_LONG).show();
             return;
         } else if (TextUtils.isEmpty(strUserEmailReg)){
             Toast.makeText(SignUpActivity.this, "Please enter your email address", Toast.LENGTH_SHORT).show();
@@ -99,8 +94,7 @@ public class SignUpActivity extends AppCompatActivity {
                     final String strUserMessage = "ActivationCode: " + strUserCode;
 
                     final HashMap<String, String> dataMap = new HashMap<String, String>();
-                    dataMap.put("userFirstName", strUserFirstNameReg);
-                    dataMap.put("userLastName", strUserLastNameReg);
+                    dataMap.put("userName", strUserNameReg);
                     dataMap.put("userEmail", strUserEmailReg);
                     dataMap.put("userID", strUserIDReg);
                     dataMap.put("userStatus", "Not Active");
