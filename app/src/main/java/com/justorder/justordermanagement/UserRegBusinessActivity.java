@@ -120,7 +120,7 @@ public class UserRegBusinessActivity extends AppCompatActivity {
 
         final String strBusinessNameReg = edtBusinessNameReg.getText().toString().trim();
         final String strBusinessPhoneNoReg = edtBusinessPhoneNoReg.getText().toString().trim();
-        final String strBusinessIDReg = stringGenerator.createStringID(36);
+        final String strBusinessIDReg = stringGenerator.createPassayRNG(28);
         final String strUserFullName = strUserFirstName + " " + strUserLastName;
 
         if (fStorage == null) {
