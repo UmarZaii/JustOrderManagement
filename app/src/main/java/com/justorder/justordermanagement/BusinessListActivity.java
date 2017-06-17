@@ -1,5 +1,6 @@
 package com.justorder.justordermanagement;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -53,8 +54,7 @@ public class BusinessListActivity extends AppCompatActivity {
             @Override
             protected void populateViewHolder(final BusinessListViewHolder viewHolder, BusinessListModel model, int position) {
 
-                String strBusinessID = model.getBusinessID();
-                System.out.println(strBusinessID);
+                final String strBusinessID = model.getBusinessID();
 
                 viewHolder.setBusinessID(strBusinessID);
 
@@ -68,6 +68,15 @@ public class BusinessListActivity extends AppCompatActivity {
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
 
+                    }
+                });
+
+                viewHolder.v.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(BusinessListActivity.this, BusinessMainActivity.class);
+                        intent.putExtra("strBusinessID",strBusinessID);
+                        startActivity(intent);
                     }
                 });
 

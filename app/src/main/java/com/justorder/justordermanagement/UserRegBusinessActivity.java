@@ -14,11 +14,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -38,7 +35,6 @@ public class UserRegBusinessActivity extends AppCompatActivity {
     private ProgressDialog progressDialog;
 
     private String strUserID = "";
-//    private String strUserName = "";
 
     private static final int GALLERY_REQUEST = 1;
 
@@ -59,18 +55,6 @@ public class UserRegBusinessActivity extends AppCompatActivity {
         edtBusinessPhoneNoReg = (EditText)findViewById(R.id.edtBusinessPhoneNoReg);
 
         strUserID= fAuth.getCurrentUser().getUid();
-
-//        fDatabaseUser.child(strUserID).child("userName").addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                strUserName = dataSnapshot.getValue().toString();
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//
-//            }
-//        });
 
         imgBusinessReg = (ImageButton)findViewById(R.id.imgBusinessReg);
         imgBusinessReg.setOnClickListener(new View.OnClickListener() {
@@ -134,12 +118,9 @@ public class UserRegBusinessActivity extends AppCompatActivity {
                 tblBusiness.put("businessID", strBusinessIDReg);
                 tblBusiness.put("businessContact", strBusinessPhoneNoReg);
                 tblBusiness.put("businessPic", downloadUrl.toString());
-                final HashMap<String, String> tblBusinessManager = new HashMap<String, String>();
-                tblBusinessManager.put("managerID", strUserID);
-//                tblBusinessManager.put("managerName", strUserName);
 
                 fDatabaseBusiness.child(strBusinessIDReg).setValue(tblBusiness);
-                fDatabaseBusiness.child(strBusinessIDReg).child("businessManager").child("Manager").child(strUserID).setValue(tblBusinessManager);
+                fDatabaseBusiness.child(strBusinessIDReg).child("tblManager").child("Manager").child(strUserID).child("managerID").setValue(strUserID);
                 fDatabaseUser.child(strUserID).child("userType").child("Manager").child(strBusinessIDReg).child("businessID").setValue(strBusinessIDReg);
 
                 progressDialog.dismiss();

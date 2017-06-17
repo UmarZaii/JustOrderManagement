@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="16dp"
     android:paddingBottom="16dp"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
-    android:orientation="vertical">
+    android:weightSum="1">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/rvBusinessList"
+        android:id="@+id/rvProductClassList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="247dp"
+        android:layout_weight="0.61" />
+
+    <Button
+        android:id="@+id/btnGoToAddProductClass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ADD GROUP" />
 
 </LinearLayout>

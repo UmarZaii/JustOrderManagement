@@ -18,6 +18,10 @@
         <activity android:name=".UserMainActivity"></activity>
         <activity android:name=".UserRegBusinessActivity"></activity>
         <activity android:name=".BusinessListActivity"></activity>
+        <activity android:name=".BusinessMainActivity"></activity>
+        <activity android:name=".StaffListActivity"></activity>
+        <activity android:name=".ProductClassListActivity"></activity>
+        <activity android:name=".ProductClassAddActivity"></activity>
         <activity android:name=".LaunchScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

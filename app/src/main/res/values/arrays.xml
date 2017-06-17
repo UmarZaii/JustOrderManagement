@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="menu_type">
+        <item>Food</item>
+        <item>Drink</item>
+    </string-array>
+    <string-array name="menu_display">
+        <item>Casual</item>
+        <item>Special</item>
+    </string-array>
+</resources>
