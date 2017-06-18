@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
@@ -67,7 +68,22 @@ public class ProductClassListActivity extends AppCompatActivity{
             @Override
             protected void populateViewHolder(final ProductClassListViewHolder viewHolder, ProductClassListModel model, int position) {
 
-                viewHolder.setClassName(model.getClassName());
+                final String strClassName = model.getClassName();
+                final String strClassDisplay = model.getClassDisplay();
+                final String strClassType = model.getClassType();
+
+                viewHolder.setClassName(strClassName);
+
+                viewHolder.v.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+//                        Intent intent = new Intent(ProductClassListActivity.this, ProductItemListActivity.class);
+//                        intent.putExtra("strClassName", strClassName);
+//                        intent.putExtra("strClassDisplay", strClassDisplay);
+//                        intent.putExtra("strClassType", strClassType);
+//                        startActivity(intent);
+                    }
+                });
 
             }
         };
