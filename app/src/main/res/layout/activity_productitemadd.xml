@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <ImageButton
+        android:id="@+id/imgProductPicAdd"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/add_btn"
+        android:layout_alignParentTop="true" />
+
+    <EditText
+        android:id="@+id/edtProductNameAdd"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="MenuName"
+        android:layout_below="@+id/imgProductPicAdd"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/edtProductDescAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/edtProductNameAdd"
+        android:hint="MenuDesc"
+        android:lines="2"
+        android:maxLines="2" />
+
+    <EditText
+        android:id="@+id/edtProductHotPriceAdd"
+        android:layout_width="169dp"
+        android:layout_height="40dp"
+        android:hint="MenuHotPrice"
+        android:layout_marginTop="27dp"
+        android:layout_below="@+id/edtProductDescAdd"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="34dp"
+        android:layout_marginStart="34dp"
+        android:layout_toLeftOf="@+id/edtProductColdPriceAdd"
+        android:layout_toStartOf="@+id/edtProductColdPriceAdd" />
+
+    <EditText
+        android:id="@+id/edtProductColdPriceAdd"
+        android:layout_width="169dp"
+        android:layout_height="40dp"
+        android:hint="MenuColdPrice"
+        android:layout_marginRight="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_alignBaseline="@+id/edtProductHotPriceAdd"
+        android:layout_alignBottom="@+id/edtProductHotPriceAdd"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:id="@+id/btnAddProduct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtProductHotPriceAdd"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp"
+        android:text="ADD" />
+
+</RelativeLayout>

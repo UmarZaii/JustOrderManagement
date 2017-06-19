@@ -93,7 +93,7 @@ public class UserRegBusinessActivity extends AppCompatActivity {
         final String strBusinessPhoneNoReg = edtBusinessPhoneNoReg.getText().toString().trim();
         final String strBusinessIDReg = stringGenerator.createPassayRNG(28);
 
-        if (fStorage == null) {
+        if (imageUrl == null) {
             Toast.makeText(this, "Please insert profile picture..", Toast.LENGTH_SHORT).show();
             return;
         } else if (TextUtils.isEmpty(strBusinessNameReg)) {

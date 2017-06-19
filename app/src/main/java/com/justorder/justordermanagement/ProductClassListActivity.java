@@ -33,15 +33,15 @@ public class ProductClassListActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_productclasslist);
 
+        Intent intent = getIntent();
+        strBusinessID = intent.getStringExtra("strBusinessID");
+
         fDatabaseBusiness = FirebaseDatabase.getInstance().getReference().child("tblBusiness");
 
         rvProductClassList = (RecyclerView)findViewById(R.id.rvProductClassList);
         rvProductClassList.setHasFixedSize(true);
         rvProductClassList.setLayoutManager(new LinearLayoutManager(this));
         btnGoToAddProductClass = (Button)findViewById(R.id.btnGoToAddProductClass);
-
-        Intent intent = getIntent();
-        strBusinessID = intent.getStringExtra("strBusinessID");
 
         btnGoToAddProductClass.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,7 +62,7 @@ public class ProductClassListActivity extends AppCompatActivity{
                 ProductClassListModel.class,
                 R.layout.rvrow_productclasslist,
                 ProductClassListViewHolder.class,
-                fDatabaseBusiness.child(strBusinessID).child("tblProduct").child("tblProductClass")
+                fDatabaseBusiness.child(strBusinessID).child("tblProduct")
 
         ) {
             @Override
@@ -77,11 +77,12 @@ public class ProductClassListActivity extends AppCompatActivity{
                 viewHolder.v.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-//                        Intent intent = new Intent(ProductClassListActivity.this, ProductItemListActivity.class);
-//                        intent.putExtra("strClassName", strClassName);
-//                        intent.putExtra("strClassDisplay", strClassDisplay);
-//                        intent.putExtra("strClassType", strClassType);
-//                        startActivity(intent);
+                        Intent intent = new Intent(ProductClassListActivity.this, ProductItemListActivity.class);
+                        intent.putExtra("strBusinessID", strBusinessID);
+                        intent.putExtra("strClassName", strClassName);
+                        intent.putExtra("strClassDisplay", strClassDisplay);
+                        intent.putExtra("strClassType", strClassType);
+                        startActivity(intent);
                     }
                 });
 

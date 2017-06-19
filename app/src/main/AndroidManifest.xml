@@ -22,6 +22,8 @@
         <activity android:name=".StaffListActivity"></activity>
         <activity android:name=".ProductClassListActivity"></activity>
         <activity android:name=".ProductClassAddActivity"></activity>
+        <activity android:name=".ProductItemListActivity"></activity>
+        <activity android:name=".ProductItemAddActivity"></activity>
         <activity android:name=".LaunchScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

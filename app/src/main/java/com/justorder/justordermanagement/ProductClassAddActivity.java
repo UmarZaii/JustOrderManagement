@@ -87,7 +87,7 @@ public class ProductClassAddActivity extends AppCompatActivity {
                 tblProductClass.put("classType", strProductType);
                 tblProductClass.put("classDisplay", strProductDisplay);
 
-                fDatabase.child(strBusinessID).child("tblProduct").child("tblProductClass").child(strClassName).setValue(tblProductClass);
+                fDatabase.child(strBusinessID).child("tblProduct").child(strClassName).setValue(tblProductClass);
             }
         });
     }
