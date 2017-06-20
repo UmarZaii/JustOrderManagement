@@ -38,7 +38,7 @@ public class ProductItemListActivity extends AppCompatActivity {
 
         fDatabaseBusiness = FirebaseDatabase.getInstance().getReference().child("tblBusiness");
 
-        rvProductItemList = (RecyclerView)findViewById(R.id.rvProductClassList);
+        rvProductItemList = (RecyclerView)findViewById(R.id.rvProductItemList);
         rvProductItemList.setHasFixedSize(true);
         rvProductItemList.setLayoutManager(new LinearLayoutManager(this));
         btnGoToAddProductItem = (Button)findViewById(R.id.btnGoToAddProductItem);

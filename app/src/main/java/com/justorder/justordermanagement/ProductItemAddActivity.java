@@ -112,19 +112,19 @@ public class ProductItemAddActivity extends AppCompatActivity {
         final String strProductHotPriceAdd = edtProductHotPriceAdd.getText().toString().trim();
         final String strProductColdPriceAdd = edtProductColdPriceAdd.getText().toString().trim();
 
-        if (imageUrl == null) {
-            Toast.makeText(this, "Please insert menu picture..", Toast.LENGTH_SHORT).show();
-            return;
-        } else if (TextUtils.isEmpty(strProductNameAdd)) {
-            Toast.makeText(this, "Please insert menu name..", Toast.LENGTH_SHORT).show();
-            return;
-        } else if (TextUtils.isEmpty(strProductDescAdd)) {
-            Toast.makeText(this, "Please insert menu description..", Toast.LENGTH_SHORT).show();
-            return;
-        } else if (TextUtils.isEmpty(strProductHotPriceAdd) && TextUtils.isEmpty(strProductColdPriceAdd)) {
-            Toast.makeText(this, "Please insert menu price..", Toast.LENGTH_SHORT).show();
-            return;
-        }
+//        if (imageUrl == null) {
+//            Toast.makeText(this, "Please insert menu picture..", Toast.LENGTH_SHORT).show();
+//            return;
+//        } else if (TextUtils.isEmpty(strProductNameAdd)) {
+//            Toast.makeText(this, "Please insert menu name..", Toast.LENGTH_SHORT).show();
+//            return;
+//        } else if (TextUtils.isEmpty(strProductDescAdd)) {
+//            Toast.makeText(this, "Please insert menu description..", Toast.LENGTH_SHORT).show();
+//            return;
+//        } else if (TextUtils.isEmpty(strProductHotPriceAdd) && TextUtils.isEmpty(strProductColdPriceAdd)) {
+//            Toast.makeText(this, "Please insert menu price..", Toast.LENGTH_SHORT).show();
+//            return;
+//        }
 
         progressDialog.setMessage("Adding Menu, Please Wait...");
         progressDialog.show();
